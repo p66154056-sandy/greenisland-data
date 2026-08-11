@@ -6,8 +6,12 @@
 import csv
 import re
 
-UPLOAD_DIR = "/mnt/user-data/uploads"
-OUTPUT_DIR = "/home/claude/data_export"
+import os
+
+# 原始 CSV 放在 build_scripts/ 的上一層 raw_csv/ 資料夾（相對路徑，任何電腦上都能跑）
+_THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+UPLOAD_DIR = os.path.join(_THIS_DIR, "..", "raw_csv")
+OUTPUT_DIR = os.path.join(_THIS_DIR, "..", "data")
 
 YEARS = list(range(2015, 2025))
 VILLAGES = ["南寮", "中寮", "公館"]
